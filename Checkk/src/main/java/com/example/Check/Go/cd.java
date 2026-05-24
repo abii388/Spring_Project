@@ -9,7 +9,7 @@ public class cd {
 	 @GetMapping("/hi")
 	 @ResponseBody
 	 public String disp() {
-		return "Helo";
+		return "Hellllllo";
 		 
 	 }
 
