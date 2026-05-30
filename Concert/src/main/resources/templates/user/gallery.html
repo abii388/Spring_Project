@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" th:href="@{/css/nav.css}" />
+    <link rel="stylesheet" th:href="@{/css/concertList.css}" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+
+        form {
+            width: 40%;
+            margin: 30px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: rgb(0, 0, 0);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border: 2px solid #ccc;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div th:replace="~{user/usernav.html}"></div>
+
+    <h1>File Upload</h1>
+
+    <!-- Upload Form -->
+    <form method="post" enctype="multipart/form-data" th:action="@{/uploadfile}">
+        <input type="file" name="file" />
+        <br />
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Success / Error Message -->
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <!-- Uploaded Images Gallery -->
+    <div th:if="${files != null}">
+        <h2 style="text-align: center;">Uploaded Images</h2>
+		<div class="gallery">
+		    <div th:each="file : ${files}">
+		        <img th:src="@{/uploads/{filename}(filename=${file})}" alt="Uploaded Image" style="width: 200px;" />
+		        <p th:text="${file}"></p>
+		    </div>
+		</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo"><p>🎵 Concert Booking</p></div>
+            <div class="nav-links">
+                <a th:href="@{/adminhome}">Home</a>
+                <a th:href="@{/concertform}">Create Concert</a>
+				<a th:href="@{/viewconcert}">View Concert</a>
+                <a th:href="@{/manageuser}">Manage_user</a>
+				<a th:href="@{/logout}">logout</a>
+            </div>
+        </div>
+    </body>
+</html>

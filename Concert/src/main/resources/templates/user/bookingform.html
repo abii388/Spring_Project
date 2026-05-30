@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Concert</title>
+    <link rel="stylesheet" th:href="@{/css/concertform.css}" />
+    <script>
+        function calculateTotalPrice() {
+            const ticketPrice = parseFloat(document.getElementById("ticketPrice").value);
+            const persons = parseInt(document.getElementById("numPersons").value);
+            if (!isNaN(ticketPrice) && !isNaN(persons)) {
+                document.getElementById("totalPrice").value = ticketPrice * persons;
+            } else {
+                document.getElementById("totalPrice").value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div th:replace="~{user/usernav.html}"></div>
+
+    <div class="form-container">
+        <h2>Book Concert</h2>
+      <div th:if="${message}">
+		  <p th:text="${message}"></p>
+	  </div>  
+	  <form th:action="@{/confirmticket/}+${id}" method="post" th:object="${confirmconcert}">
+		    <input type="hidden" th:field="*{concert.id}" />
+
+            <div class="form-group">
+                <label for="concertName">Concert Name:</label>
+                <input type="text" th:field="*{concertName}" id="concertName" readonly required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+                <label for="concertDate">Concert Date:</label>
+                <input type="date" th:field="*{concertDate}"  id="concertDate" readonly required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+                <label for="ticketPrice">Ticket Price:</label>
+                <input type="number" th:field="*{ticketPrice}"  id="ticketPrice" readonly required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+                <label for="venue">Venue:</label>
+                <input type="text" th:field="*{venue}"  id="venue" readonly required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+                <label for="availableTickets">Available Tickets:</label>
+				<input type="number"id="availableTickets"name="availableTickets"th:value="${availableTickets}"readonly />            
+			</div>
+
+            <div class="form-group">
+                <label for="numPersons">Number of Persons:</label>
+                <select id="numPersons" name="numberofPerson" onchange="calculateTotalPrice()" required>
+                    <option value="">Select</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                  
+                </select><br/><br/>
+            </div>
+
+            <div class="form-group">
+                <label for="totalPrice">Total Price:</label>
+                <input type="text" id="totalPrice"  name="totalPrice" readonly /><br/><br/>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

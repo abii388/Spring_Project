@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Concert</title>
+    <link rel="stylesheet" th:href="@{/css/concertform.css}" />
+</head>
+<body>
+    <div th:replace="~{admin/adminnav.html}"></div>
+
+    <div class="form-container">
+        <h2>Create Concert</h2>
+		<div th:if="${message}" class="success-message">
+				    <p th:text="${message}"></p>
+				</div>
+        <form th:action="@{/submitform}" method="post" th:object="${concert}">
+            <div class="form-group">
+				<label for="concertName">Concert Name:</label>
+				        	<input type="text" name="concertName" th:field="*{concertName}" required /><br/><br/>
+            </div>
+
+		   <div class="form-group">
+				<label for="concertDate">Concert Date:</label>
+				<input type="date" th:field="*{concertDate}" name="concertDate" required /><br/><br/>
+
+            </div>
+
+            <div class="form-group">
+				<label for="ticketPrice">Ticket Price:</label>
+					<input type="number" th:field="*{ticketPrice}" name="ticketPrice" required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+				<label for="venue">Venue:</label>
+				     <input type="text" th:field="*{venue}" name="venue" required /><br/><br/>           
+			<div class="form-group">
+				<label for="availableTickets">Available Tickets:</label>
+				      <input type="number" th:field="*{availableTickets}" name="availableTickets" required /><br/><br/>
+			</div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+<!--
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Concert</title>
+    <link rel="stylesheet" th:href="@{/css/concertform.css}" />
+</head>
+<body>
+    <div th:replace="~{admin/adminnav.html}"></div>
+
+    <div class="form-container">
+        <h2>Create Concert</h2>
+		<div th:if="${message}" class="success-message">
+				    <p th:text="${message}"></p>
+				</div>
+        <form th:action="@{/submitform}"  method="post" role="form" th:object="${concert}" >
+            <div class="form-group">
+				<label for="concertName">Concert Name:</label>
+				        <input type="text" id="concertName" th:field="*{concertName}" required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+				<label for="concertDate">Concert Date:</label>
+				<input type="date" id="concertDate" th:field="*{concertDate}" required /><br/><br/>
+
+            </div>
+
+            <div class="form-group">
+				<label for="ticketPrice">Ticket Price:</label>
+				       <input type="number" id="ticketPrice" step="0.01" th:field="*{ticketPrice}" required /><br/><br/>
+            </div>
+
+            <div class="form-group">
+				<label for="venue">Venue:</label>
+				      <input type="text" id="venue" th:field="*{venue}" required /><br/><br/>           
+			<div class="form-group">
+				<label for="availableTickets">Available Tickets:</label>
+				      <input type="number" id="availableTickets" th:field="*{availableTickets}" required /><br/><br/>
+			</div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
+-->

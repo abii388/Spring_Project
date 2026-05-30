@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Concert</title>
+    <link rel="stylesheet" th:href="@{/css/concertform.css}" />
+</head>
+<body>
+    <div th:replace="~{admin/adminnav.html}"></div>
+
+    <div class="form-container">
+        <h2 th:text="*{concert.concertName}"></h2>
+
+		
+ 
+   <form  method="post" th:object="${concert}">
+           <div class="form-group">
+				<label for="concertName">Concert Name:</label>
+				        	<input type="text" name="concertName" th:field="*{concertName}"  required  readonly/><br/><br/>
+            </div>
+
+		   <div class="form-group">
+				<label for="concertDate">Concert Date:</label>
+				<input type="date" th:field="*{concertDate}" name="concertDate" required readonly /><br/><br/>
+
+            </div>
+
+            <div class="form-group">
+				<label for="ticketPrice">Ticket Price:</label>
+					<input type="number" th:field="*{ticketPrice}" name="ticketPrice"  required  readonly/><br/><br/>
+            </div>
+
+            <div class="form-group">
+				<label for="venue">Venue:</label>
+				     <input type="text" th:field="*{venue}" name="venue" required readonly /><br/><br/>           
+			<div class="form-group">
+				<label for="availableTickets">Available Tickets:</label>
+				      <input type="number" th:field="*{availableTickets}" name="availableTickets" required  readonly/><br/><br/>
+			</div>
+
+           
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/nav.css}"/>
+		<link rel="stylesheet" th:href="@{/css/concertList.css}"/>
+		
+
+    </head>
+    <body>
+		<div th:replace="~{user/usernav.html}"></div>
+		<form th:action="@{/listconcert}" method="get" class="search-form">
+		    <input type="text" name="keyword" placeholder="Search by name, date(y-m-d), or venue" />
+		    <button type="submit">Search</button>
+		</form>
+
+		
+		<table>
+		    <thead>
+		        <tr>
+		            <th>Name</th>
+		            <th>Date</th>
+		            <th>Price</th>
+		            <th>Venue</th>
+		            <th>Available Tickets</th>
+		            <th>Actions</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="concert : ${concert}">
+		            <td th:text="${concert.concertName}"></td>
+		            <td th:text="${concert.concertDate}"></td>
+		            <td th:text="${concert.ticketPrice}"></td>
+		            <td th:text="${concert.venue}"></td>
+		            <td th:text="${concert.availableTickets}"></td>
+		            <td>
+		                <a th:href="@{/bookticket/}+ ${concert.id} " class="btn edit">Book</a>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+
+		
+    </body>
+</html>

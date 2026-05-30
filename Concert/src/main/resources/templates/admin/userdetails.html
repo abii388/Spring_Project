@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/nav.css}"/>
+		<link rel="stylesheet" th:href="@{/css/concertList.css}"/>
+    </head>
+    <body>
+		<div th:replace="~{admin/adminnav.html}"></div>
+		<table>
+		    <thead>
+		        <tr>
+					<th>UserId</th>
+		            <th>username</th>
+		            <th>email</th>
+				    <th>Phone number</th>
+		            <th>Actions</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="user : ${users}">
+					<td th:text="${user.id}"></td>
+					<td th:text="${user.userName}"></td>
+		            <td th:text="${user.email}"></td>
+					<td th:text="${user.phoneNumber}"></td>
+				
+					
+		            
+		            <td>
+						<a th:href="@{'/userview/' + ${user.id}}"class="btn view">View </a>
+						<a th:href="@{'/usereditform/' + ${user.id}}"class="btn view">Edit </a>
+		                
+		                <a th:href="@{'/deleteuser/' + ${user.id}}" class="btn delete" 
+		                   onclick="return confirm('Are you sure you want to delete this concert?');">
+						   Delete
+					   </a>
+		            </td>
+		        </tr>
+		    </tbody>
+		</table>
+
+		
+    </body>
+</html>

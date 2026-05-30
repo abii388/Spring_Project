@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/nav.css}"/>
+		<link rel="stylesheet" th:href="@{/css/theme.css}" /> 
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo"><p>🎵 Concert Booking</p></div>
+            <div class="nav-links">
+                <a th:href="@{/userhome}">Home</a>
+             <a th:href="@{/listconcert}">View Concert</a>
+                <a th:href="@{/userhistory}">Concert History</a>
+				<a th:href="@{/uploadfile}">Gallery</a>
+				<a th:href="@{/logout}">logout</a>				
+				
+            </div>
+			<!--<div class="theme-toggle">
+							      <label class="switch">
+							          <input type="checkbox" id="themeSwitch" />
+							          <span class="slider round"></span>
+							      </label>
+							  </div>-->
+							
+			
+        </div>
+		<script>
+		      const toggle = document.getElementById('themeSwitch');
+		      const body = document.body;
+
+		      toggle.addEventListener('change', () => {
+		          body.classList.toggle('dark-mode');
+		          localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+		      });
+
+		      // Apply saved theme on load
+		      window.addEventListener('DOMContentLoaded', () => {
+		          if (localStorage.getItem('theme') === 'dark') {
+		              body.classList.add('dark-mode');
+		              toggle.checked = true;
+		          }
+		      });
+		  </script>
+<!--		  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+-->
+    </body>
+</html>

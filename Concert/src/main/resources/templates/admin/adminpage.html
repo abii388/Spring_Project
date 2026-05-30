@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+	<link rel="stylesheet" th:href="@{/css/home.css}" />
+
+</head>
+<body>
+   <div th:replace="~{admin/adminnav.html}"></div>
+
+    <div class="container">
+        <h1>Welcome to Admin page</h1>
+        <p>Book your favorite concert tickets online!</p>
+    </div>
+</body>
+</html>

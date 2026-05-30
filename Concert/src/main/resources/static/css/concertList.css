@@ -1,0 +1,144 @@
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/* Table styling stays same as before */
+
+.btn {
+    padding: 6px 12px;
+    margin-right: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn.edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn.edit:hover {
+    background-color: #45a049;
+}
+
+
+.btn.view:hover {
+    background-color: rgb(0, 255, 255);
+}
+.btn.view {
+    background-color: rgb(0, 64, 128);
+    color: white;
+}
+.btn.view_users:hover {
+    background-color: rgb(255, 0, 128);
+}
+.btn.view_users {
+    background-color: rgb(128, 0, 64);
+    color: white;
+}
+.btn.delete {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+
+.btn.delete:hover {
+    background-color: #d32f2f;
+}
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin:20px  0px 20px 0px ;
+	
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 500px;
+    transition: border-color 0.3s;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: rgb(0, 0, 0);
+    outline: none;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: rgb(128, 128, 128);
+}
+
+.status-toggle {
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.btn-enable {
+    background-color: green;
+}
+
+.btn-disable {
+    background-color: rgb(136, 0, 0);
+}
+.status-dropdown {
+
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: #f9f9f9;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.status-dropdown:focus {
+    border-color: rgb(128, 128, 128);
+    outline: none;
+    background-color: #fff;
+}

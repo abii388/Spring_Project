@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+		<link rel="stylesheet" th:href="@{/css/nav.css}"/>
+		<link rel="stylesheet" th:href="@{/css/concertList.css}"/>
+    </head>
+    <body>
+		<div th:replace="~{user/usernav.html}"></div>
+		<table>
+		    <thead>
+		        <tr>
+		            <th>Name</th>
+		            <th>Date</th>
+		            <th>Price</th>
+		            <th>Venue</th>
+		            <th>TotalPrice</th>
+					<th>Number of Person</th>
+		            <th>Actions</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="concert : ${concert}">
+		            <td th:text="${concert.concertName}"></td>
+		            <td th:text="${concert.concertDate}"></td>
+		            <td th:text="${concert.ticketPrice}"></td>
+		            <td th:text="${concert.venue}"></td>
+					
+		            <td th:text="${concert.totalPrice}"></td>
+				    <td th:text="${concert.numberofPerson}"></td>
+		            <td>
+						<a th:href="@{/pdf_generate/}+ ${concert.id} " , class="btn edit">PDF</a>
+		                <a th:href="@{/deletehistory/}+ ${concert.id} " onclick="return confirm('Are you sure you want to delete this concert?')", class="btn edit">delete</a>
+		            </td>
+					
+		        </tr>
+		    </tbody>
+		</table>
+
+		
+    </body>
+</html>
